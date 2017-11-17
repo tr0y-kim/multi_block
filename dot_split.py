@@ -27,21 +27,29 @@ while True:
 	if (dot in put_url.keys()): # .keys() helps to print out all the keys in put_url dict.
 		for key in put_url:
 			if (key == dot):
-				put_url[dot].append(line[:-1])
+				f2 = open(directory + dot + '.txt','a+') # append to the files	
+				f2.write(line+'\n')
+				#	put_url[dot].append(line[:-1])
+				f2.close()
 	else:
 		put_url[dot] = []
-		put_url[dot].append(line[:-1])
+		f2 = open(directory + dot + '.txt','w')
+		f2.write(line+'\n')
+		f2.close()
+		#put_url[dot].append(line[:-1])
+	
 	if (count % 10000 == 0):
 		print count
-
-print '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+		
+"""
+print 'finished ' + put_url
 for key,value in put_url:	# value is list!
 	print key,value
 	f2 = open(directory + key + '.txt', 'w')
 	for i in range(len(value)):
 		f2.write(value[i]+'\n')
 	f2.close()
-	
 
-#print put_url
+
+	 """
 f.close()
