@@ -38,6 +38,32 @@ void dump(unsigned char* buf, int size) {
     }
 	puts("");
 }
+int search_CRLF(char* search) { // in order to find target length ; before 0d 0a
+	int target_len = 0;
+	char* tmp = search; 
+	for(; *search != '\0'; search++) {
+    	/* Seach for a newline */
+    	if(*search == '\n') {
+      	  printf("\nnewline Found\n");
+		  target_len++;
+   		}
+	   	/* Search for a CRLF */
+   		else if(*search == '\r' && *(search + 1) == '\n') {
+   	    	printf("\nCRLF Found\n");
+   	    	search++; /* search will be incremented twice (bit hacky?) */
+			search = tmp; // getting back!
+			return target_len;
+	  	}
+	}
+}
+
+void file_open_find(char* dot) {
+	char filename[20];
+	filename = dot + "txt"; //pseudo not yet
+
+	
+
+}
 
 // ---------------------------------------------------------------
 static u_int32_t print_pkt (struct nfq_data *tb) {
@@ -91,6 +117,9 @@ static u_int32_t print_pkt (struct nfq_data *tb) {
 	tcp_hdr_size = (tcpHdr-> th_off * 4); // tcp header size
 	tcp_data_area = data + ip_hdr_size + tcp_hdr_size;
 	tcp_data_len = ret - ip_hdr_size - tcp_hdr_size; // ret is total length 
+	
+	char hi[] = "/home/rictr0y/gilgil/multi_block/dot_list/";
+	FILE *file_pointer;
 
 	if(ipHdr->ip_p == TCPTYPE && tcp_hdr_size > 0) {
 		//printf("[*] tcpHdr size : %d\n",tcp_hdr_size);
@@ -103,15 +132,23 @@ static u_int32_t print_pkt (struct nfq_data *tb) {
 		//dump((char *) tcp_data_area, tcp_data_len);
 		//printf("[tcp data area DUMP Finished]\n");
 		//printf("%s\n", tcp_data_area);
-		search_host = strstr(tcp_data_area, "Host: ");
+		search_host = strstr(tcp_data_area, "Host: "); // finding Host: pointer
 		if(search_host != NULL) {
 			// seg fault if it just print it!
 			printf("****************ATTENTION***************\n");
-			char *tmp;
-			tmp = (char*)malloc(sizeof(char) * (6 + target_len)); // 6 for "Host: "
-			strncpy(tmp, search_host, sizeof(char) * (6 + target_len));
+			target_len = search_CRLF(search_host+6); // pointer remained & returns target_len
+			char *tmp = 0;
+			tmp = (char*)malloc(sizeof(char) * (6 + target_len + 1)); // 6 for "Host: "
+			strncpy(tmp, search_host, sizeof(char) * (6 + target_len)); // ex) tmp -> Host: www.naver.com
 			printf("%s\n", tmp);
-			if (!strcmp(target,tmp+6)) {
+			// we have to find whether tmp is in the list of 1m-top.csv
+			//strrchr 문자열의 끝에서부터 역순으로 검색해서 문자를 찾았으면 해당 문자로 시작하는 문자열의 포인터를 반환, 문자가 없으면 NULL을 반환
+			char *finded_dot = strrchr(tmp, '.');
+			printf("%s\n", finded_dot); //
+			file_open_find(finded_dot+1,tmp); // not .com, only com! | and find www.naver.com
+//			(finded_dot+1) + "txt"	// finded_dot+1 for except . & 
+			
+			if (!strcmp(target,tmp+6)) {			
 				printf("[+] Same with the target DUDE!!!\n");
 				flag = 0;
 			}
@@ -141,15 +178,12 @@ int main(int argc, char *argv[]) {
     int fd;
     int rv;
     char buf[4096] __attribute__ ((aligned));
-
-	if (argc != 2) {
-		puts("You need argv[1]!");
-		exit(1);
-	}
 	
-	target = argv[1];
-	target_len = strlen(target);
+	// I will find the last dot from the url!!
+	//char *finded_dot = strrchr(target, '.');
+	//printf("%s\n", finded_dot);
 
+		
 	// Initializing the iptables configuration
 	system("iptables -F"); //iptables_F
 	system("iptables -A OUTPUT -j NFQUEUE --queue-num 0");

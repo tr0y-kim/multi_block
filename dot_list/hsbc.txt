@@ -1,0 +1,8 @@
+uk.hsbc
+
+hk.hsbc
+
+us.hsbc
+
+internal.hsbc
+

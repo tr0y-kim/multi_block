@@ -1,0 +1,8 @@
+# Go to dot_list directory
+# use command 
+
+find . -type f | wc -l
+
+total num
+756
+

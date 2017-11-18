@@ -1,0 +1,6 @@
+int.kn
+
+bitcoin.kn
+
+gov.kn
+

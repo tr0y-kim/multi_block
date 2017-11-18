@@ -1,0 +1,4 @@
+fans.vote
+
+touhou.vote
+

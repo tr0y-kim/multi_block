@@ -1,0 +1,6 @@
+kino.rent
+
+cargo.rent
+
+amoot.rent
+

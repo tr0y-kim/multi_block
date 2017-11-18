@@ -1,0 +1,6 @@
+banco.bradesco
+
+financiamentos.bradesco
+
+universitario.bradesco
+

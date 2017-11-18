@@ -1,0 +1,6 @@
+partner.solar
+
+events.solar
+
+insunwetrust.solar
+

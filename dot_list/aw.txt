@@ -1,0 +1,4 @@
+diario.aw
+
+setar.aw
+

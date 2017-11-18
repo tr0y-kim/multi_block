@@ -1,0 +1,10 @@
+real.discount
+
+yearend.discount
+
+freelance.discount
+
+black-friday.discount
+
+fresh.discount
+

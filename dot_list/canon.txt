@@ -1,0 +1,6 @@
+global.canon
+
+myid.canon
+
+ftn.canon
+
