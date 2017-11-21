@@ -1,4 +1,0 @@
-es.telefonica
-
-de.telefonica
-

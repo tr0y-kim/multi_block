@@ -1,6 +1,0 @@
-ecofog.gf
-
-agora.gf
-
-info.gf
-

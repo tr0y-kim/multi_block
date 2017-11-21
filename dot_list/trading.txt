@@ -1,4 +1,0 @@
-bitcoincash.trading
-
-neurobot.trading
-

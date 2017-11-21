@@ -1,6 +1,0 @@
-rab.equipment
-
-hacker.equipment
-
-influencer.equipment
-

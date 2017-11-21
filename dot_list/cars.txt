@@ -1,4 +1,0 @@
-uae.cars
-
-regit.cars
-

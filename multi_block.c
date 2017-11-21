@@ -39,29 +39,66 @@ void dump(unsigned char* buf, int size) {
 	puts("");
 }
 int search_CRLF(char* search) { // in order to find target length ; before 0d 0a
-	int target_len = 0;
-	char* tmp = search; 
+	int _len = 0;
+	
 	for(; *search != '\0'; search++) {
     	/* Seach for a newline */
     	if(*search == '\n') {
       	  printf("\nnewline Found\n");
-		  target_len++;
+		  _len++;
    		}
 	   	/* Search for a CRLF */
    		else if(*search == '\r' && *(search + 1) == '\n') {
    	    	printf("\nCRLF Found\n");
    	    	search++; /* search will be incremented twice (bit hacky?) */
-			search = tmp; // getting back!
-			return target_len;
+			//search = *tmp; // getting back!
+			return _len;
 	  	}
+		_len++;
 	}
 }
 
-void file_open_find(char* dot) {
-	char filename[20];
-	filename = dot + "txt"; //pseudo not yet
-
+int file_open_find(char* dot, char* tmp) {
+	char filename[30];
+	char file_pwd[100];
+	char contents[200000];
+	int dot_len = strlen(dot);
+	FILE *file_pointer;
+	char*	cmd_buffer;
 	
+	FILE *fp;
+	
+	fp = popen("/bin/pwd","r");
+	if (fp == NULL) {
+		printf("I cannot find pwd!");
+		exit(1);
+	}
+	while(fgets(file_pwd,sizeof(file_pwd)-2,fp) != NULL) {
+		printf("%s",file_pwd);
+	}
+	pclose(fp);
+	printf("file_pwd_length: %d",strlen(file_pwd)-1);
+	for (int i=0;i<dot_len;i++){
+		file_pwd[i+strlen(file_pwd)-1] = dot[i];
+	}
+
+	// strcat(file_pwd,filename); // /home/rictr0y/gilgil/multi_block/com.txt
+	printf("PLZ!!!!!!!!!!!!!: %s\n",file_pwd);
+
+
+	sprintf(cmd_buffer, "cat %s | grep %s",file_pwd,tmp);
+	// 	filename finished
+	file_pointer=fopen(file_pwd, "r"); // file opened
+	int i = 0;
+	while(fscanf(file_pointer, "%c", &contents[i]) != EOF){ //finishing copying
+		i = i + 1;
+	}
+	if(strstr(file_pointer,tmp)!=NULL) {
+		fclose(file_pointer);
+		return 1;	
+	}
+	fclose(file_pointer);
+	return 0;
 
 }
 
@@ -120,6 +157,7 @@ static u_int32_t print_pkt (struct nfq_data *tb) {
 	
 	char hi[] = "/home/rictr0y/gilgil/multi_block/dot_list/";
 	FILE *file_pointer;
+	char *tmp;
 
 	if(ipHdr->ip_p == TCPTYPE && tcp_hdr_size > 0) {
 		//printf("[*] tcpHdr size : %d\n",tcp_hdr_size);
@@ -135,23 +173,23 @@ static u_int32_t print_pkt (struct nfq_data *tb) {
 		search_host = strstr(tcp_data_area, "Host: "); // finding Host: pointer
 		if(search_host != NULL) {
 			// seg fault if it just print it!
-			printf("****************ATTENTION***************\n");
+			printf("\n****************ATTENTION***************");
+			printf("\n%s\n",search_host);
 			target_len = search_CRLF(search_host+6); // pointer remained & returns target_len
-			char *tmp = 0;
-			tmp = (char*)malloc(sizeof(char) * (6 + target_len + 1)); // 6 for "Host: "
+			printf("target_len: %d",target_len);
+			search_host = strstr(tcp_data_area, "Host: "); // finding Host: again!
+			tmp = (char*)malloc(sizeof(char) * (6 + target_len)); // 6 for "Host: " and 1 for \x00
 			strncpy(tmp, search_host, sizeof(char) * (6 + target_len)); // ex) tmp -> Host: www.naver.com
-			printf("%s\n", tmp);
+			printf("\n%s\n", tmp);
 			// we have to find whether tmp is in the list of 1m-top.csv
 			//strrchr 문자열의 끝에서부터 역순으로 검색해서 문자를 찾았으면 해당 문자로 시작하는 문자열의 포인터를 반환, 문자가 없으면 NULL을 반환
 			char *finded_dot = strrchr(tmp, '.');
-			printf("%s\n", finded_dot); //
-			file_open_find(finded_dot+1,tmp); // not .com, only com! | and find www.naver.com
-//			(finded_dot+1) + "txt"	// finded_dot+1 for except . & 
-			
-			if (!strcmp(target,tmp+6)) {			
+			printf("%s\n", finded_dot);
+				
+			if (file_open_find((finded_dot+1),tmp)) { // not .com, only com! | and find www.naver.com
 				printf("[+] Same with the target DUDE!!!\n");
 				flag = 0;
-			}
+			}	
 			free(tmp);
 		}
 			

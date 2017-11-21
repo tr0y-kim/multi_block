@@ -1,6 +1,1 @@
 my.monash
-
-intranet.monash
-
-eng1003.monash
-

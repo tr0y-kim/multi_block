@@ -1,4 +1,0 @@
-myservice.cba
-
-prod.cba
-

@@ -1,8 +1,1 @@
 2ch.vet
-
-simples.vet
-
-belanta.vet
-
-hippo.vet
-

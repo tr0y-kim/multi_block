@@ -1,10 +1,1 @@
 home.barclays
-
-joinus.barclays
-
-uk.barclays
-
-identity.barclays
-
-readytowork.barclays
-

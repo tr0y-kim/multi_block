@@ -1,4 +1,0 @@
-tw.observer
-
-theapps.observer
-

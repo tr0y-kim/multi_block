@@ -1,16 +1,1 @@
 temp.domains
-
-ens.domains
-
-donuts.domains
-
-newly.domains
-
-moonfruit.domains
-
-tool.domains
-
-nettigritty.domains
-
-georgetown.domains
-

@@ -1,4 +1,1 @@
 empire.kred
-
-home.kred
-

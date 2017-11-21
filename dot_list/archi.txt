@@ -1,4 +1,0 @@
-competitions.archi
-
-name.archi
-

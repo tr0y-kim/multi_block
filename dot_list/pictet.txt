@@ -1,4 +1,0 @@
-am.pictet
-
-group.pictet
-

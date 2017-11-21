@@ -1,8 +1,0 @@
-cloudbackup.management
-
-backup.management
-
-campeggievillaggi.management
-
-advertising.management
-

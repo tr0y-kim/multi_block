@@ -1,4 +1,0 @@
-bitcoin.tax
-
-world.tax
-

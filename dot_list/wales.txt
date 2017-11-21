@@ -1,16 +1,1 @@
 gov.wales
-
-partyof.wales
-
-satellite.wales
-
-museum.wales
-
-assembly.wales
-
-naturalresources.wales
-
-library.wales
-
-arc.wales
-

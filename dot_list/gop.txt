@@ -1,6 +1,0 @@
-advantage.gop
-
-fairandsimple.gop
-
-vote.gop
-

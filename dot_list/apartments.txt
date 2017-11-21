@@ -1,4 +1,0 @@
-urbanedge.apartments
-
-surveys.apartments
-

@@ -1,6 +1,1 @@
 chime.aws
-
-quicksight.aws
-
-buildon.aws
-

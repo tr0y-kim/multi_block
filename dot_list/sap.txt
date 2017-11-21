@@ -1,6 +1,0 @@
-int.sap
-
-corp.sap
-
-enter.sap
-

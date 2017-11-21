@@ -1,4 +1,0 @@
-driver.yandex
-
-clickhouse.yandex
-

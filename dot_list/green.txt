@@ -1,16 +1,1 @@
 umbrella.green
-
-node.green
-
-ibox.green
-
-qor.green
-
-elemental.green
-
-vivit.green
-
-exo551.green
-
-star8.green
-
