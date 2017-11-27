@@ -2,7 +2,7 @@
 유해 사이트가 100만개이라고 가정을 하고 사용자가 접속하려는 사이트의 Host 이름이 100만개 리스트 안에 들어 갔을 때 패킷을 차단하는 프로그램을 작성 <br />
 
 # Usage
-./multiblock
+./multiblock <br />
 코드 내부에 iptables 와 netfilter_queue 명령어를 저장해뒀으니 그냥 쓰시면 됩니다.
 
 # 코드 설명
