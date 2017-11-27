@@ -12,7 +12,8 @@ file pointer를 오픈시켜서 <br />
 `
 cat /bin/cat 경로/dot_list/url에 붙는 단어 | grep "필터링 될 url"
 `
-<br />의 방식으로 검색하였다.
+<br />의 방식으로 검색하였다. <br />
+전역 변수 flag을 이용하여서 해당 Host 들을 필터링하였다.
 
 # 보안할 점
 url에 접속할 때 정확하게 url 입력해줘야한다.
