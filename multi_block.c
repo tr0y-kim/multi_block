@@ -61,10 +61,9 @@ int search_CRLF(char* search) { // in order to find target length ; before 0d 0a
 int file_open_find(char* dot, char* tmp) {
 	char filename[300];
 	char file_pwd[1000];
-	char contents[200000];
 	int dot_len = strlen(dot);
 	FILE *file_pointer;
-	char*	cmd_buffer;
+	char cmd_buffer[400];
 	
 	FILE *fp;
 	
@@ -89,13 +88,21 @@ int file_open_find(char* dot, char* tmp) {
 	strcat(file_pwd,dot); // /home/rictr0y/gilgil/multi_block/dot_list/com
 	printf("PLZ!!!!!!!!!!!!!: %s\n",file_pwd); // but segfault
 	
-	sprintf(cmd_buffer, "cat %s | grep %s",file_pwd,tmp);
+	snprintf(cmd_buffer,100, "/bin/cat %s | grep \"%s\"",file_pwd,&tmp[6]); // &tmp[6] for after Host :
 	printf("[+] cmd_buffer: %s\n",cmd_buffer);
 	// 	filename finished
 	// file_pointer=fopen(file_pwd, "r"); // file opened
-	printf("cmd_buffer is on the system function!!!!!!!!\n");	
-	system(cmd_buffer);
+	printf("cmd_buffer is on the system function!!!!!!!!\n");
+	
+	fp = popen(cmd_buffer,"r");
+	if (fp == NULL) {
+		printf("I cannot find cat!");
+		exit(1);
+	}
+	
 
+
+/*
 	int i = 0;
 	while(fscanf(file_pointer, "%c", &contents[i]) != EOF){ //finishing copying
 		i = i + 1;
@@ -104,7 +111,7 @@ int file_open_find(char* dot, char* tmp) {
 		fclose(file_pointer);
 		return 1;	
 	}
-	fclose(file_pointer);
+	fclose(file_pointer);*/
 	return 0;
 
 }
