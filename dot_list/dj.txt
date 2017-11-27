@@ -1,3 +1,0 @@
-plug.dj
-clip.dj
-you.dj

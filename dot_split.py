@@ -27,13 +27,13 @@ while True:
 	if (dot in put_url.keys()): # .keys() helps to print out all the keys in put_url dict.
 		for key in put_url:
 			if (key == dot):
-				f2 = open(directory + dot + '.txt','a+') # append to the files	
+				f2 = open(directory + dot,'a+') # append to the files	
 				f2.write(line)
 				#	put_url[dot].append(line[:-1])
 				f2.close()
 	else:
 		put_url[dot] = []
-		f2 = open(directory + dot + '.txt','w')
+		f2 = open(directory + dot,'w')
 		f2.write(line)
 		f2.close()
 		#put_url[dot].append(line[:-1])

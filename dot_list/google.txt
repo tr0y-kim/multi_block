@@ -1,4 +1,0 @@
-blog.google
-domains.google
-grow.google
-design.google

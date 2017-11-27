@@ -1,4 +1,0 @@
-sun.mv
-avas.mv
-google.mv
-ibay.com.mv

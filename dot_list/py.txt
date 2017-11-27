@@ -1,7 +1,0 @@
-google.com.py
-abc.com.py
-epa.com.py
-set.gov.py
-hoy.com.py
-mec.gov.py
-itau.com.py

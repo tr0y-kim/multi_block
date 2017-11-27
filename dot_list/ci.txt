@@ -1,3 +1,0 @@
-google.ci
-jumia.ci
-educarriere.ci

@@ -1,2 +1,0 @@
-cs.money
-dota.money

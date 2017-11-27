@@ -1,7 +1,0 @@
-nnm-club.name
-gdz.name
-davidwalsh.name
-hidemy.name
-pokemon.name
-s0fttportal16cc.name
-sudoku.name

@@ -1,8 +1,0 @@
-storm.mg
-google.mg
-upmedia.mg
-mirrormedia.mg
-coin.mg
-moov.mg
-midi-madagasikara.mg
-orange.mg

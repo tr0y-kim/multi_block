@@ -1,7 +1,0 @@
-btcminer.services
-tech-monitor-task.services
-2makeyourday.services
-delicacy.services
-marketingautomation.services
-bookpdf.services
-unlockproject.services

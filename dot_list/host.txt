@@ -1,7 +1,0 @@
-pars.host
-nekopoi.host
-sumtotal.host
-2ch.host
-sheet.host
-thevideo.host
-openload.host

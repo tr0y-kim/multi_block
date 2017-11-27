@@ -1,7 +1,0 @@
-google.ps
-samanews.ps
-iugaza.edu.ps
-shasha.ps
-paltoday.ps
-rb2000.ps
-rmix.ps

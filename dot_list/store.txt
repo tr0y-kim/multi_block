@@ -1,3 +1,0 @@
-fakedoor.store
-sosyalmedya.store
-zaycev.store

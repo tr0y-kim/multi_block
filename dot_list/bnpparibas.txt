@@ -1,3 +1,0 @@
-mabanque.bnpparibas
-mabanquepro.bnpparibas
-group.bnpparibas

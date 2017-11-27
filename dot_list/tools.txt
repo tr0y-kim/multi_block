@@ -1,4 +1,0 @@
-steam.tools
-adm.tools
-minecraft.tools
-search.tools

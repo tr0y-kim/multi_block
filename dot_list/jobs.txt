@@ -1,8 +1,0 @@
-amazon.jobs
-amazonuniversity.jobs
-persy.jobs
-amazondelivers.jobs
-att.jobs
-aecom.jobs
-accorhotels.jobs
-sainsburys.jobs

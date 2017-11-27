@@ -59,8 +59,8 @@ int search_CRLF(char* search) { // in order to find target length ; before 0d 0a
 }
 
 int file_open_find(char* dot, char* tmp) {
-	char filename[30];
-	char file_pwd[100];
+	char filename[300];
+	char file_pwd[1000];
 	char contents[200000];
 	int dot_len = strlen(dot);
 	FILE *file_pointer;
@@ -74,21 +74,28 @@ int file_open_find(char* dot, char* tmp) {
 		exit(1);
 	}
 	while(fgets(file_pwd,sizeof(file_pwd)-2,fp) != NULL) {
-		printf("%s",file_pwd);
+		printf("[+] fgets: %s",file_pwd);
 	}
 	pclose(fp);
-	printf("file_pwd_length: %d",strlen(file_pwd)-1);
-	for (int i=0;i<dot_len;i++){
-		file_pwd[i+strlen(file_pwd)-1] = dot[i];
-	}
-
-	// strcat(file_pwd,filename); // /home/rictr0y/gilgil/multi_block/com.txt
-	printf("PLZ!!!!!!!!!!!!!: %s\n",file_pwd);
-
-
+	file_pwd[strlen(file_pwd)-1] = '\0'; // '\0' instead of '\n' to use strcat!
+	strcat(file_pwd,"/dot_list/");
+	printf("[+] After strcat with /dot_list : %s\n",file_pwd);
+	printf("file_pwd_length: %d",strlen(file_pwd));
+	/*for (int i=0; i<dot_len; i++){
+		printf("\ndot: %c",dot[i]);
+		file_pwd[i+strlen(file_pwd)] = dot[i];
+	}*/
+	printf("\n");
+	strcat(file_pwd,dot); // /home/rictr0y/gilgil/multi_block/dot_list/com
+	printf("PLZ!!!!!!!!!!!!!: %s\n",file_pwd); // but segfault
+	
 	sprintf(cmd_buffer, "cat %s | grep %s",file_pwd,tmp);
+	printf("[+] cmd_buffer: %s\n",cmd_buffer);
 	// 	filename finished
-	file_pointer=fopen(file_pwd, "r"); // file opened
+	// file_pointer=fopen(file_pwd, "r"); // file opened
+	printf("cmd_buffer is on the system function!!!!!!!!\n");	
+	system(cmd_buffer);
+
 	int i = 0;
 	while(fscanf(file_pointer, "%c", &contents[i]) != EOF){ //finishing copying
 		i = i + 1;

@@ -1,6 +1,0 @@
-tracker.network
-searchweb.network
-access.network
-stripe.network
-request.network
-kyber.network

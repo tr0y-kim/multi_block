@@ -1,8 +1,0 @@
-artv.watch
-otc.watch
-hqq.watch
-seasonsepisode.watch
-serie-streaming.watch
-gomovies.watch
-firstonetv.watch
-putlockerhd.watch

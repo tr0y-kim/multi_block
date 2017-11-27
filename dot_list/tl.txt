@@ -1,4 +1,0 @@
-link.tl
-es.tl
-mex.tl
-de.tl

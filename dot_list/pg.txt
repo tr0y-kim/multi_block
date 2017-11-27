@@ -1,4 +1,0 @@
-google.com.pg
-bsp.com.pg
-unitech.ac.pg
-postcourier.com.pg

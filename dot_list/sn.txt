@@ -1,5 +1,0 @@
-google.sn
-passorange.sn
-uvs.sn
-jumia.sn
-campusen.sn

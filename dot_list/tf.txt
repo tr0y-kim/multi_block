@@ -1,6 +1,0 @@
-scrap.tf
-backpack.tf
-putlockers.tf
-marketplace.tf
-piratebayproxy.tf
-pirateproxy.tf

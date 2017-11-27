@@ -1,2 +1,0 @@
-outage.report
-neighbor.report

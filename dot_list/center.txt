@@ -1,3 +1,0 @@
-appupdate.center
-qna.center
-alpha-and-omega.center
