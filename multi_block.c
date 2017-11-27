@@ -64,6 +64,7 @@ int file_open_find(char* dot, char* tmp) {
 	int dot_len = strlen(dot);
 	FILE *file_pointer;
 	char cmd_buffer[400];
+	char find_exist[100];
 	
 	FILE *fp;
 	
@@ -99,19 +100,10 @@ int file_open_find(char* dot, char* tmp) {
 		printf("I cannot find cat!");
 		exit(1);
 	}
-	
-
-
-/*
-	int i = 0;
-	while(fscanf(file_pointer, "%c", &contents[i]) != EOF){ //finishing copying
-		i = i + 1;
+	while(fgets(find_exist,sizeof(find_exist)-2,fp) != NULL) {
+		printf("[+] file exist! bro! : %s\n", find_exist);
+		return 1;
 	}
-	if(strstr(file_pointer,tmp)!=NULL) {
-		fclose(file_pointer);
-		return 1;	
-	}
-	fclose(file_pointer);*/
 	return 0;
 
 }
@@ -205,10 +197,8 @@ static u_int32_t print_pkt (struct nfq_data *tb) {
 				flag = 0;
 			}	
 			free(tmp);
-		}
-			
+		}	
 	}
-
 	return id;
 }
 
